@@ -1,0 +1,312 @@
+ cat > index.html << 'ENDHTML'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yocelyn C. Salvador - Activity2</title>
+</head>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        :root {
+            --primary: #ee33a6;
+            --secondary: #f76aa6;
+            --accent: #fde0f0;
+            --dark: #423400;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Times New Roman', Times, serif;
+            background: linear-gradient(135deg, #fff9e6 0%, #f7e9c4 100%);
+            min-height: 100vh;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 12px 20px;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(192, 145, 16, 0.2);
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .main-wrapper {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(192, 145, 16, 0.15);
+            overflow: hidden;
+        }
+        .page-header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .tagline {
+            font-size: 17px;
+            opacity: 0.9;
+        }
+        .page-body {
+            padding: 35px;
+        }
+        .section {
+            margin-bottom: 35px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 25px;
+        }
+        .info-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .info-value {
+            font-size: 15px;
+            color: #5c4a00;
+        }
+        .edu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .edu-table th {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 14px 18px;
+            text-align: left;
+            font-size: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--primary);
+        }
+        .edu-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0e6c8;
+            font-size: 15px;
+        }
+        .edu-table tr:last-child td {
+            border-bottom: none;
+        }
+        .level {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .back-to-top {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .back-to-top a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .back-to-top a:hover {
+            text-decoration: underline;
+        }
+        .footer-note {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #f0e6c8;
+            font-size: 14px;
+            color: #8a7228;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .edu-table {
+                display: block;
+                overflow-x: auto;
+            }
+            .navbar ul {
+                gap: 10px;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ee33a6;
+            --secondary: #f76aa6;
+            --accent: #fde0f0;
+            --dark: #423400;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Times New Roman', Times, serif;
+            background: linear-gradient(135deg, #fff9e6 0%, #f7e9c4 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .edu-wrapper {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(192, 145, 16, 0.15);
+            overflow: hidden;
+        }
+
+        .page-header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subhead {
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        .page-body {
+            padding: 35px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .edu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .edu-table th {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 14px 18px;
+            text-align: left;
+            font-size: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .edu-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0e6c8;
+            font-size: 15px;
+        }
+
+        .edu-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .level {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .nav-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .edu-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#profile">Profile</a>
+        <a href="#education">Educational Background</a>
+    </nav>
+
+    <section id="profile">
+        <h1>Profile</h1>
+        
+    </section>
+
+    <section id="education">
+        <h2>Educational Background</h2>
+        
+    </section>
+
+</body>
+</html>
+ENDHTML
